@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Meet Bot Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>MeetBot Controller</h1>
+            <div class="status-badge" id="statusBadge">
+                <span class="status-dot"></span>
+                <span id="statusText">Offline</span>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Configuration Panel -->
+            <section class="card config-card">
+                <h2>Configuration</h2>
+                <form id="botForm">
+                    <div class="input-group">
+                        <label for="meetLink">Google Meet Link</label>
+                        <input type="url" id="meetLink" name="meetLink" placeholder="https://meet.google.com/xxx-xxxx-xxx" required>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="duration">Duration (Minutes)</label>
+                            <input type="number" id="duration" name="duration" value="90" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="profile">Chrome Profile</label>
+                            <input type="text" id="profile" name="profile" value="Profile 2" required>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit" class="btn btn-primary" id="startBtn">Start Bot</button>
+                        <button type="button" class="btn btn-danger" id="stopBtn" disabled>Stop Bot</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Live Console -->
+            <section class="card console-card">
+                <div class="console-header">
+                    <h2>Live Activity Log</h2>
+                    <div class="pulse-ring"></div>
+                </div>
+                <div class="console-window" id="consoleOutput">
+                    <div class="log-entry sys-log">Waiting for bot to start...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
