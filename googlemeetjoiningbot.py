@@ -11,7 +11,7 @@ import sounddevice as sd
 import numpy as np
 import scipy.io.wavfile as wavfile
 
-user_data_path = r"C:\Users\user\AppData\Local\Google\Chrome\User Data"
+user_data_path = os.getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data"
 profile = "Profile 2" 
 
 options = webdriver.ChromeOptions()
