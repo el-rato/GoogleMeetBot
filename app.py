@@ -76,5 +76,9 @@ def stop_bot():
     bot_status = "Stopping..."
     return jsonify({"message": "Stop signal sent"}), 200
 
+@app.route("/home")
+def home():
+    return "LAUDA"
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, port=5000)
