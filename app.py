@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,send_from_directory
 from http import HTTPStatus
 import threading
 import time
@@ -79,6 +79,9 @@ def stop_bot():
 @app.route("/home")
 def home():
     return "LAUDA"
+@app.route("/api/lauda", methods=['GET','POST'])
+def anotherlawda():
+    return send_from_directory("C:\\Users\\USER\\OneDrive\\Desktop\\MeetBot\\static", "cock.jpg")
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, port=5000)
